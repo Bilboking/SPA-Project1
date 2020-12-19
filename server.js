@@ -36,7 +36,28 @@ app.post("/add", function (req, res) {
 // GET Directory of employees, returns an array of objects from the server.
 app.get("/directory", function (req, res) {
 	// Modify this route and the views
-	res.render("pages/directory");
+var config = {
+  method: 'get',
+  url: 'https://spa-lab-12-16-20-default-rtdb.firebaseio.com/.json',
+  headers: { }
+};
+
+axios(config)
+.then(function (response) {
+  console.log(response.data);
+	responseArray = Object.entries(response.data.data)
+	console.log(responseArray)
+	return responseArray
+}).then((employees) => {
+      res.render("pages/directory", {
+        employees: employees,
+      })
+})
+
+.catch(function (error) {
+  console.log(error);
+});
+	
 });
 
 // GET static about page
@@ -60,3 +81,8 @@ app.get("/add", function (req, res) {
 
 app.listen(2001);
 console.log("Port 2001 is open");
+//cd SPA-Lab
+//node server.js
+//git status 
+//git remote set-url origin https://github.com/Bilboking/SPA-Project1.git
+//git remote -v

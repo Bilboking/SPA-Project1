@@ -2,6 +2,8 @@
 <html lang="en">
 	<head>
 		<%- include('../partials/head'); %>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 	</head>
 	<body class="container">
 		<header><%- include('../partials/header'); %></header>
@@ -30,9 +32,35 @@
           <img src="/images/example.png" class="img-fluid">
 
           <!-- YOUR EJS OR HANDLEBARS TEMPLATE LITERALS GO HERE -->
+<!-- <% employees.forEach(function(employee){%>
+		<div class="col-3 p-1 m-2 bg-light">
+		<img src="<%= employee[1].picture %>">
+		<%= employee[1].firstName %>
+		<%= employee[1].lastName %>
+		<%= employee[1].email %>
+		</div>
+<% }); %> -->
+		</div>
+	<% employees.forEach(function(employee){%>
+	<div class="row justify-content-between">
+	<!--<div class="card" style="width: 18rem;">--->
+  <!--<img src="employee[1].picture" class="card-img-top" >-->
+	
+  <div class="card-body">
+	<!--<div class="col-3 p-1 m-2 bg-light">-->
+		<img src="<%= employee[1].picture %>" class="img-fluid">
+		<h6 class="card-title"><%= employee[1].firstName %></h6>
+		<h6 class="card-title"><%= employee[1].lastName %></h6>
+		<p class="card-text"><%= employee[1].email %></p>
+		<a href="/pages/person.ejs/-W563254l6ksr654" class="btn btn-primary">View Profile</a>
+		</div> 
+    </div>
+  </div>
+</div>
+<% }); %>
 
            <!-- Try mocking up some Bootstrap cards or columns with some hard coded data to get an idea of how your templates should look. -->
-				</div>
+				<!--</div> -->
 			</div>
 		</main>
 
