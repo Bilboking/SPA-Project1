@@ -86,3 +86,5 @@ console.log("Port 2001 is open");
 //git status 
 //git remote set-url origin https://github.com/Bilboking/SPA-Project1.git
 //git remote -v
+//git add .
+//git commit -m "Initial commit"
